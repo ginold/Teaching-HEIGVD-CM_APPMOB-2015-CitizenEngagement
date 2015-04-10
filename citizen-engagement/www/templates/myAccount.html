@@ -1,0 +1,34 @@
+<ion-view view-title="My Account">
+ <ion-nav-buttons side="secondary">
+  <button type="button" ng-controller="LogoutCtrl" ng-click="logOut()" class="button">Log Out</button>
+ <button>My Account</button>
+   
+  </ion-nav-buttons>
+  <ion-content ng-controller="myAccountCtrl">
+
+  <div class="item">
+      <h2> <i class="icon ion-person-stalker"></i>  &nbsp;&nbsp;{{firstname}} {{lastname}}</h2>
+    </div>
+      
+<div class="issues">
+         <h3 class="title"><i class="icon ion-flag"></i> &nbsp;&nbsp;My issues</h3>
+      <ion-list>
+        <ion-item ng-repeat="issue in issues" class="item-thumbnail-left">
+        <img ng-src="{{issue.imageUrl}}">
+         <h2 class="title">{{issue.issueType.name | capitalize:true}}</h2> 
+         <p><b>State</b>: &nbsp;{{issue.state}}</p>
+         <p>{{issue.city}}</p>
+          <ion-option-button class="button-positive" ng-controller="MapController"
+                       ng-click="showOnMap(issue.lat, issue.lng)">
+         Show on Map
+       </ion-option-button>
+        </ion-item>
+      </ion-list>
+
+    <p ng-hide="issues.length">You have no issues</p>
+
+</div>
+
+
+  </ion-content>
+</ion-view>

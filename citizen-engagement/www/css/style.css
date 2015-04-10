@@ -1,0 +1,70 @@
+/* Empty. Add your own CSS if you like */
+.leaflet-container{
+	position: inherit;
+	height: 100%;
+	width: 100%;
+}
+.secondary-buttons{
+	font-size: 0.7em;
+}
+button{
+	font-size: 0.7em;
+}
+.issueImg {
+ 	height: 50px;
+}
+.issueImgDetails {
+ 	height: 150px;
+
+ 	
+}
+.issueListSearch{
+	height: 60px;
+	padding: 0;
+}
+
+.item{
+	font-size: 0.8em;
+	width: 100%;
+}
+.nearImg{
+	display: block;
+}
+.info{
+	width: 80%;
+	display: inline-block;
+}
+.comment{
+	padding-top: 50px;
+}
+.comments{
+	font-size: 0.8em;
+}
+.row{
+	padding: 0;
+}
+.date{
+	font-size: 0.5em;
+}
+.seeOnMapButton{
+
+	margin-left: 50px;
+}
+
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+.leftMenu{
+	margin-top: 40px;
+}

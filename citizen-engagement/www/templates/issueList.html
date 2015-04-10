@@ -1,0 +1,59 @@
+<ion-view view-title="Issue List">
+ <ion-nav-buttons side="primary">
+      <button class="button button-clear" ng-controller="myAccountCtrl" ng-click="toggleLeft()"><i class="ion-navicon-round"></i></button>
+  </ion-nav-buttons>
+  <ion-side-menus>
+    <ion-side-menu-content>
+  <ion-content ng-controller="IssuesController">
+  
+  <div class="row issueListSearch" >
+     	<div class="item col col-35 item-toggle" >
+         	<p id="myToggle">My issues</p>
+         <label class="toggle toggle-calm">
+           <input type="checkbox"  ng-model="myToggle" ng-click="myIssuesFilterToggle()">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+         </label>
+      </div>
+   
+          <ion-radio class="col" ng-click="orderBy('issueType.name')">
+          By  type
+        </ion-radio>
+      
+            <ion-radio class="col" ng-click="orderBy('state')">
+            By state
+        </ion-radio>
+</div>
+<input  class="item" ng-model="searchIssue" placeholder="search">
+     	<ion-list >
+     		<ion-item ng-repeat="issue in issues | filter: searchIssue | orderBy: order" class="item" ng-controller="IssueDetailsController" ng-click="goToIssueDetails(issue.id)">
+     			<a class="item-thumbnail-left" issue-id="{{issue.id}}">
+      			<img onError="this.onerror=null;this.src='img/cat.png';" src="{{issue.imageUrl}}">
+      			<div class="info">
+	      			<h2> <b>{{issue.issueType.name | capitalize:true }} </b>({{issue.state}}) </h2>
+	      			<p>Created on {{issue.createdOn}}</p>
+	      			<p>{{issue.city}}</p>
+	      		</div>		
+      				<i class="ion-arrow-right-b icon"></i>
+    			</a>
+     		</ion-item>   		 
+     	</ion-list>
+  </ion-content>
+  </ion-side-menu-content>
+   <ion-side-menu side="left">
+   <div class="leftMenu">
+    <div class="list">
+      <a class="item item-icon-left"  ng-controller="myAccountCtrl" ng-click="goToMyAccountList()">
+           <i class="icon ion-person-stalker"></i>
+             My account
+        </a>
+  <a class="item item-icon-left" href="#" ng-controller="LogoutCtrl" ng-click="logOut()">
+    <i class="icon ion-ios-undo"></i>
+   Log out
+  </a>  
+</div>
+     </div>
+  </ion-side-menu>
+  </ion-side-menus>
+</ion-view>

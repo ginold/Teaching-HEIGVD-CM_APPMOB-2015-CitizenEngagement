@@ -1,0 +1,49 @@
+<ion-view view-title="Issue Details" ng-controller="GetOneIssueController">
+
+  <ion-content>
+    
+    <div class="row">
+
+     <img  onError="this.onerror=null;this.src='img/cat.png';" src="{{issue.imageUrl}}" class="issueImgDetails col col-50">
+     <div class="col col-50">
+         <h3> {{issue.issueType.name |capitalize:true}} </h3>
+            
+        <p ><b>State</b>: {{issue.state}}</p>
+        <p><b>Posted by</b> : {{issue.owner.name}}</p>
+         <button class="button seeOnMapButton button-positive" ng-controller="MapController" ng-click="showOnMap(issue.lat, issue.lng)">See on map</button>
+        </div>
+    	
+    </div>
+   
+    <div class="row">
+    <p class="item col"><b>Created on </b>: {{issue.createdOn}}</p>
+    
+    <p class="item col"><b>Assignee</b>: {{issue.assignee.name}}</p>
+    </div>
+    <div class="row">
+        <p class="item col item-text-wrap"><b>Location</b>: {{issue.city}}</p>
+        <p class="item col"><b>Posted by</b> : {{issue.owner.name}}</p>
+     </div>
+    <p class="item item-text-wrap"><b>Description </b>: {{issue.description}}</p>
+
+
+    <div class="comments">
+     <div class="bar bar-positive" > <h4 class="title commentTitle">Comments</h4></div>
+    	<ul class="comment">
+    		<li ng-repeat="comment in issue.comments" >   			
+				<div class="item item-text-wrap ">
+                    <p>{{comment.text}}</p>
+		 		   <b>{{comment.author.name}}</b>
+                    <p class="date">Posted on {{comment.postedOn}}</p>
+                </div> 	
+
+    		</li>
+    	</ul>
+    	<label class="item-input">
+    	<textarea  ng-model="comment"placeholder="Post your comment"></textarea>
+    	</label>
+    	<button class="button button-positive" ng-click="postComment(comment, issue)">Post</button>
+    </div>
+ 
+
+</ion-view>
