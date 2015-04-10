@@ -10,7 +10,7 @@
             
         <p ><b>State</b>: {{issue.state}}</p>
         <p><b>Posted by</b> : {{issue.owner.name}}</p>
-         <button class="button seeOnMapButton button-positive" ng-controller="MapController" ng-click="showOnMap(issue.lat, issue.lng)">See on map</button>
+         <button class="button seeOnMapButton button-positive" ng-controller="GetOneIssueController" ng-click="showOnMap(issue.lat, issue.lng)">See on map</button>
         </div>
     	
     </div>

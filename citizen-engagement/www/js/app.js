@@ -360,6 +360,7 @@ angular.module('citizen-engagement', ['geolocation', 'ionic', 'citizen-engagemen
           message: "here!"   
        }
        markers.push(newMarker);
+       $scope.mapMarkers = markers;
        console.log($scope);
 
       }//if
